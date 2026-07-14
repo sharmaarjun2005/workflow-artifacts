@@ -7,10 +7,10 @@ on:
   pull_request:
     branches:   
     - main
-  permissions:
+permissions:
     contents: read
 
-    jobs:
+jobs:
     coverage:
         name: Tests with coverage
         runs-on: ubuntu-latest
@@ -18,11 +18,11 @@ on:
         - uses: actions/checkout@v6
         - uses: actions/setup-node@v6
           with:
-          node-version: 24
-          cache: npm
+            node-version: 24
+            cache: npm
         - run: npm ci
         - run: npm run test:coverage
         - uses: actions/upload-artifact@v7
           with:
-          name: test-coverage-report
-        path: coverage/
+            name: test-coverage-report
+            path: coverage/
